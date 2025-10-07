@@ -1,0 +1,14 @@
+faq_venv/
+__pycache__/
+
+.json
+*.json*
+json.*
+
+*.pyc
+*.pyo
+*.pyd
+.faq_venv/
+env/
+venv/
+.git/
