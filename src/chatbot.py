@@ -53,9 +53,9 @@ app = FastAPI(title="FAQ Chatbot", version="0.1")
 
 
 # welcome route
-@app.post("/")
+@app.get("/")
 def load_app(name:str) -> dict:
-    return {"Message": f"{name}! Welcome to FAQ Chatbot"}
+    return {"Message": f"Welcome to FAQ Chatbot. Visit /docs to explore the API."}
 
 # ask the chatbot questions
 @app.post("/ask")
