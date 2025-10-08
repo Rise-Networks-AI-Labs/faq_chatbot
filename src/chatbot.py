@@ -35,12 +35,8 @@ class HybridRetriever(BaseRetriever):
         return await self.tavily_retriever.aget_relevant_documents(query)
 
 # Get the base working directory
-base_dir = os.getcwd()
-
-# Navigate to the folder where the csv file is stored
-absolute_path = base_dir + r"\src\data\kokokah_lms_faqs.csv"
-print(absolute_path)
-
+base_dir = os.path.dirname(os.path.abspath(__file__))
+absolute_path = os.path.join(base_dir, "data", "kokokah_lms_faqs.csv")
 
 # Load the environment variables
 load_dotenv()
