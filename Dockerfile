@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 # Copy everything including data
 COPY . .
 
+COPY ./src/data/kokokah_lms_faqs.csv /app/src/data/kokokah_lms_faqs.csv
+
 # Double-check CSV presence
 RUN ls -R /app/src/data || echo "No data folder found"
 
