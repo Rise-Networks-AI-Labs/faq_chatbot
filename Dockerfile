@@ -6,7 +6,12 @@ COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-COPY ./src /app/src
+# COPY ./src /app/src
+# Copy everything including data
+COPY . .
+
+# Double-check CSV presence
+RUN ls -R /app/src/data || echo "No data folder found"
 
 EXPOSE 8000
 
