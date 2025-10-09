@@ -62,8 +62,16 @@ def load_app(name:str) -> dict:
 @app.post("/ask")
 async def ask_chatbot(query: str):
     try:
+        try:
+            loader = CSVLoader(file_path=absolute_path, encoding="utf-8")
+            documents = loader.load()
+        except Exception as e:
+            import traceback
+            print("❌ Error loading CSV:", e)
+            traceback.print_exc()
+            raise 
         # Load Kokokah CSV
-        loader = CSVLoader(file_path=absolute_path)
+        loader = CSVLoader(file_path=absolute_path, encoding="utf-8")
         documents = loader.load()
 
         # Embeddings
