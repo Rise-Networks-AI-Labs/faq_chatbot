@@ -38,6 +38,11 @@ class HybridRetriever(BaseRetriever):
 base_dir = os.path.dirname(os.path.abspath(__file__))
 absolute_path = os.path.join(base_dir, "data", "kokokah_lms_faqs.csv")
 
+print(f"📂 Current working directory: {os.getcwd()}")
+print(f"📁 Expected CSV path: {absolute_path}")
+print(f"📄 Exists? {os.path.exists(absolute_path)}")
+
+
 # Load the environment variables
 load_dotenv()
 
