@@ -69,7 +69,7 @@ async def ask_chatbot(query: str):
             import traceback
             print("❌ Error loading CSV:", e)
             traceback.print_exc()
-            raise 
+            raise HTTPException(status_code=500, detail=f"CSV Load Error: {str(e)}")
 
         # Load Kokokah CSV
         loader = CSVLoader(file_path=absolute_path, encoding="utf-8")
