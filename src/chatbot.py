@@ -71,10 +71,6 @@ async def ask_chatbot(query: str):
             traceback.print_exc()
             raise HTTPException(status_code=500, detail=f"CSV Load Error: {str(e)}")
 
-        # Load Kokokah CSV
-        loader = CSVLoader(file_path=absolute_path, encoding="utf-8")
-        documents = loader.load()
-
         # Embeddings
         embedding_model = OpenAIEmbeddings(api_key=api_key)
 
